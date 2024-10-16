@@ -1,5 +1,6 @@
 "use client"
 
+import { SyncLoader } from 'react-spinners';
 // need to install react-spinners for this component to work
 // with docker - must shut down, clear volumes, and rebuild / spinup all containers
 import PuffLoader from 'react-spinners/PuffLoader';
@@ -16,11 +17,13 @@ export default function LoadingOverlay({show = true, bgColor = "#000000", spinne
     return (
         (show)
         ? 
-        <div className="flex justify-center items-center fixed z-50 inset-0 w-full h-full" style={{backgroundColor:bgColor}}>
+        <div className="flex justify-center items-center max-w-min" style={{backgroundColor:bgColor}}>
             {(showSpinner) ? 
-            <PuffLoader 
+            <SyncLoader 
                 color={spinnerColor}
-                size={50} />
+                size={5}
+                speedMultiplier={0.5}
+                />
             : <div></div>}
         </div>
         : <div></div>

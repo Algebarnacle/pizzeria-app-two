@@ -24,8 +24,6 @@ export default function Home() {
   return (
     <main className="grid grid-rows-1 grid-cols-1 gap-0 text-content">
 
-      <LoadingOverlay show={(appState == 2) ? true : false} bgColor="#b82308" />
-
       <Banner />
 
       <aside className="flex flex-nowrap items-center justify-between p-5 flex-col md:flex-row">
@@ -37,7 +35,7 @@ export default function Home() {
           <div>
               <button 
                 className="bg-accent border-none rounded-md p-2.5 text-white hover:bg-greyContent mt-5"
-                onClick={showOrders}>
+                onClick={showOrders} disabled={appState == 2}>
                   Get Orders
               </button>
           </div>
